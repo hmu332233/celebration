@@ -1,24 +1,43 @@
-import type { NextPage } from 'next'
-import Script from 'next/script';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
-// import party from 'party-js';
+import useDebounce from 'hooks/useDebounce';
+import Layout from 'components/Layout';
 
-const Home: NextPage = () => {
-  const onLoad = () => {
-    window.party.confetti(document.body, {
-      shapes: ["star", "roundedSquare"],
-      count: 100,
-      size: 1.5,
-    });
+
+function Home() {
+  const router = useRouter();
+  const [message, setMessage] = useState('');
+  const debouncedMessage = useDebounce(message, 500);
+
+  const handleChange = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { currentTarget: { value } } = e;
+    setMessage(value);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const { message } = Object.fromEntries(formData);
+
+    router.push({ pathname: '/message', query: { m: message as string }});
   };
 
   return (
-    <>
-      <Script id="party-js" src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"  onLoad={onLoad} />
-      <div className="flex justify-center items-center h-screen">
-        <div id="asdf" className="text-4xl font-extrabold animate-bounce">정답입니다~</div>
-      </div>
-    </>
+    <Layout>
+      <form className="w-full max-w-xs" onSubmit={handleSubmit}>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Message</span>
+          </label> 
+          <textarea className="textarea textarea-bordered h-24" name="message" placeholder="Message" onChange={handleChange} />
+        </div>
+        <button className="btn mt-4" type="submit">Create Link</button>
+      </form>
+      
+      <h4 className="text-xl font-bold">Preview</h4>
+      <iframe className="w-full h-80 border zoom-half" src={`/message?m=${debouncedMessage}`} />
+    </Layout>
   );
 }
 
