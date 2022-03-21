@@ -10,7 +10,7 @@ function Home() {
   const [message, setMessage] = useState('');
   const debouncedMessage = useDebounce(message, 500);
 
-  const handleChange = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { currentTarget: { value } } = e;
     setMessage(value);
   };
