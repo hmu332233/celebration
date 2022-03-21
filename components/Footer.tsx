@@ -17,7 +17,7 @@ function Footer() {
         </div>
         <div className="ml-auto">
           <a
-            href="https://github.com/hmu332233/moon.svg"
+            href="https://github.com/hmu332233/celebration"
             target="_blank"
             rel="noreferrer"
           >
