@@ -19,7 +19,7 @@ function Message() {
     <>
       <Script id="party-js" src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"  onLoad={onLoad} />
       <div className="flex justify-center items-center h-screen">
-        <div id="asdf" className="text-4xl font-extrabold animate-bounce">{m}</div>
+        <div className="max-w-md px-4 text-4xl font-extrabold animate-bounce work-keep-all">{m}</div>
       </div>
     </>
   );

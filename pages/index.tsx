@@ -27,12 +27,12 @@ function Home() {
     <Layout>
       <form className="w-full max-w-xs" onSubmit={handleSubmit}>
         <div className="form-control">
-          <label className="label">
+          {/* <label className="label">
             <span className="label-text">Message</span>
-          </label> 
+          </label>  */}
           <textarea className="textarea textarea-bordered h-24" name="message" placeholder="Message" onChange={handleChange} />
         </div>
-        <button className="btn mt-4" type="submit">Create Link</button>
+        <button className="btn btn-block mt-4" type="submit">Create Link</button>
       </form>
       
       <h4 className="text-xl font-bold">Preview</h4>
