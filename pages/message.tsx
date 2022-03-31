@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import confetti from 'canvas-confetti'; 
 
-
 const defaults = { particleCount: 50, startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
 function randomInRange(min: number, max: number) {
@@ -28,9 +27,12 @@ function Message() {
         ...defaults,
         origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 },
       });
-
-      return () => clearInterval(intervalId);
     }, 500);
+
+    return () => {
+      clearInterval(intervalId);
+      confetti.reset();
+    }
   }, []);
 
   return (
