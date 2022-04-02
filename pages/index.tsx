@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 
 import useDebounce from 'hooks/useDebounce';
 import Layout from 'components/Layout';
@@ -7,7 +6,6 @@ import Layout from 'components/Layout';
 const DEFAULT_MESSAGE: string = '🎉Celebration Message🎉\nType a Message!';
 
 function Home() {
-  const router = useRouter();
   const [message, setMessage] = useState(DEFAULT_MESSAGE);
   const debouncedMessage = useDebounce(message, 500);
 
