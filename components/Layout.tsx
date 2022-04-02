@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Header from 'components/Header';
+// import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 type Props = {
@@ -15,8 +15,7 @@ function Layout({ children }: Props) {
         <title>Celebration</title>
       </Head>
       <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="py-16 grow flex flex-col items-center gap-y-8">
+        <main className="grow flex flex-col justify-center items-center gap-y-8">
           {children}
         </main>
         <Footer />
