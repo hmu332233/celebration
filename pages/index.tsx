@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import useDebounce from 'hooks/useDebounce';
 import Layout from 'components/Layout';
+import CopyModal from 'components/CopyModal';
 
 const DEFAULT_MESSAGE: string = '🎉Celebration Message🎉\nType a Message!';
 
@@ -16,7 +17,6 @@ function Home() {
 
   const handleSubmit = async () => {
     await navigator.clipboard.writeText(`https://celebration.minung.dev/message?m=${encodeURI(debouncedMessage)}`);
-    alert('Copied!');
   };
 
   return (
@@ -26,8 +26,9 @@ function Home() {
         <div className="form-control">
           <textarea className="textarea textarea-bordered h-24" name="message" placeholder="Type in Message!" value={message} onChange={handleChange} />
         </div>
-        <button className="btn btn-block mt-4" onClick={handleSubmit}>Copy Link</button>
+        <CopyModal.Button onClick={handleSubmit} />
       </div>
+      <CopyModal.Modal />
     </Layout>
   );
 }
