@@ -15,7 +15,7 @@ export const screenshot = async (url: string) => {
       };
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
-  await page.setViewport({ width: 1080, height: 720 });
+  await page.setViewport({ width: 720, height: 480 });
   await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluateHandle('document.fonts.ready');
   return await page.screenshot({ type: 'png' });
