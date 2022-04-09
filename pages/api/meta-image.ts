@@ -1,13 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { getScreenshot } from './_utils/chromium';
+import { screenshot } from './_utils/chromium';
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { path } = req.query;
-    const file = await getScreenshot(path as string);
+    const file = await screenshot(path as string);
     res.statusCode = 200;
     res.setHeader('Content-Type', `image/png`);
     res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
