@@ -5,12 +5,12 @@ import CelebrationBox from 'components/CelebrationBox';
 
 function Message() {
   const router = useRouter();
-  const { m: message } = router.query;
+  const { m: message = '' } = router.query;
 
   return (
     <>
       <Head>
-        <meta property="og:image" content={`/api/meta-image?message=${message}`} />
+        <meta property="og:image" content={`/api/meta-image?message=${encodeURI(message as string)}`} />
       </Head>
       <CelebrationBox message={message as string} />
     </>
