@@ -18,10 +18,10 @@ async function getPage() {
     return _page;
 }
 
-export async function getScreenshot() {
+export async function getScreenshot(path: string) {
     const page = await getPage();
     await page.setViewport({ width: 2048, height: 1170 });
-    await page.goto('https://celebration.minung.dev/message?m=%F0%9F%8E%89Celebration%20Message%F0%9F%8E%89%0AType%20a%20Message!');
+    await page.goto(path);
     const file = await page.screenshot({ type: 'png' });
     return file;
 }
