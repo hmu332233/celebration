@@ -37,7 +37,7 @@ function CelebrationBox({ message }: Props) {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="max-w-md px-4 text-4xl font-extrabold animate-bounce whitespace-pre work-keep-all">{message}</div>
+      <div className="max-w-lg text-3xl md:text-4xl px-4 font-extrabold animate-bounce whitespace-pre-line work-keep-all">{message}</div>
     </div>
   );
 }

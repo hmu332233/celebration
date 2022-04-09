@@ -12,8 +12,8 @@ function Home() {
   const debouncedMessage = useDebounce(message, 500);
 
   useEffect(() => {
-    setShowShareButton(typeof navigator.share === 'undefined')
-  });
+    setShowShareButton(typeof navigator.share === 'undefined');
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { currentTarget: { value } } = e;
