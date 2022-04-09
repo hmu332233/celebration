@@ -6,8 +6,8 @@ import { screenshot } from './_utils/chromium';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { path } = req.query;
-    const file = await screenshot(path as string);
+    const { message } = req.query;
+    const file = await screenshot(`https://celebration.minung.dev/message?m=${message}`);
     res.statusCode = 200;
     res.setHeader('Content-Type', `image/png`);
     res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);

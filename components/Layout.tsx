@@ -13,6 +13,13 @@ function Layout({ children }: Props) {
     <>
       <Head>
         <title>Celebration</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://celebration.minung.dev/" />
+        <meta property="og:title" content="Celebration"/>
+        <meta property="og:image" content="/api/meta-image?message=Celebration" />
+        <meta property="og:site_name" content="Celebration"/>
+        <meta property="og:image:width" content="1080" />
+        <meta property="og:image:height" content="720" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <main className="grow flex flex-col justify-center items-center gap-y-8">
