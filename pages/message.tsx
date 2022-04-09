@@ -15,7 +15,7 @@ function Message({
     <>
       {showOgImage && (
         <Head>
-          <meta property="og:image" content={`https://celebration.minung.dev/api/meta-image?message=${encodeURI(message)}`} />
+          <meta property="og:image" content={`https://celebration.minung.dev/meta-image?message=${encodeURI(message)}`} />
         </Head>
       )}
       <CelebrationBox message={message as string} />

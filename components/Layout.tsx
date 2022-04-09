@@ -17,7 +17,7 @@ function Layout({ children }: Props) {
         <meta property="og:url" content="https://celebration.minung.dev/" />
         <meta property="og:title" content="Celebration"/>
         <meta property="og:description" content="Show a message with visual effects" />
-        <meta property="og:image" content="/api/meta-image?message=Celebration" />
+        <meta property="og:image" content="https://celebration.minung.dev/meta-image?message=Celebration" />
         <meta property="og:site_name" content="Celebration"/>
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="720" />
