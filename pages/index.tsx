@@ -16,7 +16,13 @@ function Home() {
   };
 
   const handleSubmit = async () => {
-    await navigator.clipboard.writeText(`https://celebration.minung.dev/message?m=${encodeURI(debouncedMessage)}`);
+    if (typeof navigator.share === 'undefined') {
+      await navigator.clipboard.writeText(`https://celebration.minung.dev/message?m=${encodeURI(debouncedMessage)}`);
+    } else {
+      await navigator.share({
+        url: `https://celebration.minung.dev/message?m=${encodeURI(debouncedMessage)}`,
+      });
+    }
   };
 
   return (
