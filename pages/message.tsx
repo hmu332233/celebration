@@ -1,22 +1,37 @@
+import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-
 import CelebrationBox from 'components/CelebrationBox';
 
-function Message() {
-  const router = useRouter();
-  const { m: message = '', hideOgImage } = router.query;
-  const showOgImage = hideOgImage !== 'true';
+type Props = {
+  message: string,
+  showOgImage: boolean,
+};
+
+function Message({
+  message,
+  showOgImage,
+}: Props) {
   return (
     <>
       {showOgImage && (
         <Head>
-          <meta property="og:image" content={`https://celebration.minung.dev/api/meta-image?message=${encodeURI(message as string)}`} />
+          <meta property="og:image" content={`https://celebration.minung.dev/api/meta-image?message=${encodeURI(message)}`} />
         </Head>
       )}
       <CelebrationBox message={message as string} />
     </>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { m: message, hideOgImage } = query;
+  const showOgImage = hideOgImage !== 'true';
+  return {
+    props: {
+      message,
+      showOgImage,
+    },
+  }
 }
 
 export default Message;

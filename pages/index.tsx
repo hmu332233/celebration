@@ -21,7 +21,7 @@ function Home() {
 
   return (
     <Layout>
-      <iframe className="w-full h-96 border zoom-half" src={`/message?m=${encodeURI(debouncedMessage)}`} />
+      <iframe className="w-full h-96 border zoom-half" src={`/message?hideOgImage=true&m=${encodeURI(debouncedMessage)}`} />
       <div className="container">
         <div className="form-control">
           <textarea className="textarea textarea-bordered h-24" name="message" placeholder="Type in Message!" value={message} onChange={handleChange} />
